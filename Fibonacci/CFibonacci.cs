@@ -5,7 +5,7 @@ namespace Fibonacci
 {
     class CFibonacci
     {
-        int number;
+        public int number { get; set; }
 
         public CFibonacci(int number)
         {

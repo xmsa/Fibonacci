@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -33,7 +26,7 @@ namespace Fibonacci
         {
             try
             {
-                if (txtNumber.TextLength<1)
+                if (txtNumber.Text.Length<1)
                 {
                     throw new Exception();
                 }
