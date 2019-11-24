@@ -16,7 +16,7 @@ namespace Fibonacci
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new btnExit());
+            Application.Run(new frmMain());
         }
     }
 }

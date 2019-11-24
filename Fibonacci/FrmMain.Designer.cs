@@ -1,6 +1,6 @@
 ﻿namespace Fibonacci
 {
-    partial class btnExit
+    partial class frmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -30,8 +30,12 @@
         {
             this.txtNumber = new System.Windows.Forms.TextBox();
             this.btnStart = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.lblNumber = new System.Windows.Forms.Label();
+            this.btnStop = new System.Windows.Forms.Button();
+            this.chBoxLoop = new System.Windows.Forms.CheckBox();
+            this.chBoxRecursive = new System.Windows.Forms.CheckBox();
+            this.MyAlgorithm = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // txtNumber
@@ -39,52 +43,100 @@
             this.txtNumber.Font = new System.Drawing.Font("Microsoft Uighur", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumber.Location = new System.Drawing.Point(12, 12);
             this.txtNumber.Name = "txtNumber";
-            this.txtNumber.Size = new System.Drawing.Size(136, 39);
+            this.txtNumber.Size = new System.Drawing.Size(150, 39);
             this.txtNumber.TabIndex = 0;
+            this.txtNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNumber_KeyPress);
             // 
             // btnStart
             // 
             this.btnStart.Font = new System.Drawing.Font("Microsoft Uighur", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStart.Location = new System.Drawing.Point(12, 57);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(120, 38);
+            this.btnStart.Size = new System.Drawing.Size(102, 38);
             this.btnStart.TabIndex = 1;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.BtnStart_Click);
             // 
-            // button2
+            // btnExit
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Uighur", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(138, 56);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(102, 38);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Exit";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Uighur", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Location = new System.Drawing.Point(190, 56);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(64, 38);
+            this.btnExit.TabIndex = 1;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
             // lblNumber
             // 
             this.lblNumber.AutoSize = true;
             this.lblNumber.Font = new System.Drawing.Font("Microsoft Uighur", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumber.Location = new System.Drawing.Point(154, 15);
+            this.lblNumber.Location = new System.Drawing.Point(168, 15);
             this.lblNumber.Name = "lblNumber";
             this.lblNumber.Size = new System.Drawing.Size(86, 38);
             this.lblNumber.TabIndex = 2;
             this.lblNumber.Text = "Number";
             // 
-            // btnExit
+            // btnStop
+            // 
+            this.btnStop.Font = new System.Drawing.Font("Microsoft Uighur", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStop.Location = new System.Drawing.Point(120, 56);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(64, 38);
+            this.btnStop.TabIndex = 1;
+            this.btnStop.Text = "Stop";
+            this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Click += new System.EventHandler(this.BtnExit_Click);
+            // 
+            // chBoxLoop
+            // 
+            this.chBoxLoop.AutoSize = true;
+            this.chBoxLoop.Location = new System.Drawing.Point(261, 19);
+            this.chBoxLoop.Name = "chBoxLoop";
+            this.chBoxLoop.Size = new System.Drawing.Size(50, 17);
+            this.chBoxLoop.TabIndex = 3;
+            this.chBoxLoop.Text = "Loop";
+            this.chBoxLoop.UseVisualStyleBackColor = true;
+            // 
+            // chBoxRecursive
+            // 
+            this.chBoxRecursive.AutoSize = true;
+            this.chBoxRecursive.Location = new System.Drawing.Point(261, 42);
+            this.chBoxRecursive.Name = "chBoxRecursive";
+            this.chBoxRecursive.Size = new System.Drawing.Size(74, 17);
+            this.chBoxRecursive.TabIndex = 4;
+            this.chBoxRecursive.Text = "Recursive";
+            this.chBoxRecursive.UseVisualStyleBackColor = true;
+            // 
+            // MyAlgorithm
+            // 
+            this.MyAlgorithm.AutoSize = true;
+            this.MyAlgorithm.Location = new System.Drawing.Point(261, 63);
+            this.MyAlgorithm.Name = "MyAlgorithm";
+            this.MyAlgorithm.Size = new System.Drawing.Size(83, 17);
+            this.MyAlgorithm.TabIndex = 5;
+            this.MyAlgorithm.Text = "MyAlgorithm";
+            this.MyAlgorithm.UseVisualStyleBackColor = true;
+            // 
+            // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(247, 100);
+            this.ClientSize = new System.Drawing.Size(364, 100);
+            this.Controls.Add(this.MyAlgorithm);
+            this.Controls.Add(this.chBoxRecursive);
+            this.Controls.Add(this.chBoxLoop);
             this.Controls.Add(this.lblNumber);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnStop);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.txtNumber);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "btnExit";
+            this.Name = "frmMain";
             this.Text = "Fibonacci";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -95,8 +147,12 @@
 
         private System.Windows.Forms.TextBox txtNumber;
         private System.Windows.Forms.Button btnStart;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label lblNumber;
+        private System.Windows.Forms.Button btnStop;
+        private System.Windows.Forms.CheckBox chBoxLoop;
+        private System.Windows.Forms.CheckBox chBoxRecursive;
+        private System.Windows.Forms.CheckBox MyAlgorithm;
     }
 }
 

@@ -10,12 +10,26 @@ using System.Windows.Forms;
 
 namespace Fibonacci
 {
-    public partial class btnExit : Form
+    public partial class frmMain : Form
     {
-        public btnExit()
+        public frmMain()
         {
             InitializeComponent();
         }
 
+        private void BtnStart_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnExit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
     }
 }
