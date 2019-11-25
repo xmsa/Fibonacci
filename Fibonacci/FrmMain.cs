@@ -11,9 +11,7 @@ namespace Fibonacci
             InitializeComponent();
             btnStop.Enabled = false;
             fibonacci = new CFibonacci(0);
-            tLoop = new Thread(fibonacci.Loop);
-            tRecursive = new Thread(fibonacci.Recursive);
-            tMyAlgorithm = new Thread(fibonacci.MyAlgorithm);
+
         }
 
         CFibonacci fibonacci;
@@ -28,7 +26,7 @@ namespace Fibonacci
             {
                 if (txtNumber.Text.Length<1)
                 {
-                    throw new Exception();
+                    throw new EmptyException("TextBox");
                 }
                 int number = Convert.ToInt32(txtNumber.Text);
                 Start(number);
@@ -39,9 +37,9 @@ namespace Fibonacci
                 txtNumber.Text = string.Empty;
                 txtNumber.Focus();
             }
-            catch (Exception)
+            catch (EmptyException ex)
             {
-                MessageBox.Show("Enter a Number");
+                MessageBox.Show(ex.Message);
                 txtNumber.Focus();
             }
         }
@@ -73,6 +71,9 @@ namespace Fibonacci
             chBoxMyAlgorithm.Enabled = false;
             chBoxRecursive.Enabled = false;
 
+            tLoop = new Thread(fibonacci.Loop);
+            tRecursive = new Thread(fibonacci.Recursive);
+            tMyAlgorithm = new Thread(fibonacci.MyAlgorithm);
 
             State s = Switch();
             switch (s)
@@ -97,7 +98,7 @@ namespace Fibonacci
                     tRecursive.Start();
 
                     tRecursive.Join();
-                    tMyAlgorithm.Join();
+                    tLoop.Join();
                     break;
                 case State.Loop_MyAlgorithm:
                     tLoop.Start();
@@ -118,12 +119,19 @@ namespace Fibonacci
                     tRecursive.Start();
                     tMyAlgorithm.Start();
 
-                    tLoop.Join();
+                    tRecursive.Join();
                     tMyAlgorithm.Join();
                     tLoop.Join();
                     break;
                 case State.None:
-                    MessageBox.Show("Plase Enter one item");
+                    try
+                    {
+                        throw new CheckBoxException();
+                    }
+                    catch (CheckBoxException ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                     break;
             }
             btnExit.Enabled = true;
@@ -184,6 +192,29 @@ namespace Fibonacci
             chBoxMyAlgorithm.Enabled = true;
             chBoxRecursive.Enabled = true;
             btnStop.Enabled = false;
+            
+        }
+    }
+
+    class EmptyException : Exception
+    {
+        public EmptyException()
+            : base("Object is Empty")
+        {
+
+        }
+        public EmptyException(string obj)
+           : base($"{obj} is Empty")
+        {
+
+        }
+    }
+    class CheckBoxException : Exception
+    {
+        public CheckBoxException()
+            : base("CheckBox Not selected")
+        {
+
         }
     }
 }
